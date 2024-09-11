@@ -1,5 +1,6 @@
 .venv/
 .env
+config/__pycache__/
 db.sqlite3
 Django-Bookstore.code-workspace
 azbankgateways/
