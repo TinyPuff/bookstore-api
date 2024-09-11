@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Third-party
     "rest_framework",
+    "corsheaders",
+    "rest_framework.authtoken",
     # Local
     "users.apps.UsersConfig",
 ]
@@ -137,3 +139,15 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Authentication and django-allauth config
 
 AUTH_USER_MODEL = "users.CustomUser"
+
+# Django Rest Framework config
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+    ],
+}
