@@ -3,7 +3,7 @@
 db.sqlite3
 Django-Bookstore.code-workspace
 azbankgateways/
-Bookstore-API.code-workspace
+*.code-workspace
 orders/views_backup.py
 templates/shoppingcart2.html
 templates/test.html
