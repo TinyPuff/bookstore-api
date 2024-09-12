@@ -177,4 +177,6 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ],
+    "LOGIN_SERIALIZER": "users.serializers.CustomLoginSerializer",
+    "REGISTER_SERIALIZER": "users.serializers.CustomRegisterSerializer",
 }
