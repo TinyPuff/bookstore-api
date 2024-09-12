@@ -147,10 +147,24 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "users.CustomUser"
 
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+ACCOUNT_SESSION_REMEMBER = True  # set to None to have the 'Remember Me' box
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
+ACCOUNT_EMAIL_REQUIRED = True  # user has to enter email when signing up
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+
 # E-mail config
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-SITE_ID = 1 
+SITE_ID = 1
 
 # Django Rest Framework config
 
