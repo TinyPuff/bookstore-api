@@ -16,12 +16,7 @@ class Category(models.Model):
 
 
 class Book(models.Model):
-    id = models.UUIDField(
-        primary_key=True,
-        default=uuid.uuid4,
-        editable=False,
-        unique=True,
-    )
+    id = models.AutoField(primary_key=True)
     cover = models.ImageField(upload_to="covers/", blank=True)
     title = models.CharField(max_length=350)
     author = models.CharField(max_length=250)
