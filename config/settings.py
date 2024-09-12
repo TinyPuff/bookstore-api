@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "dj_rest_auth.registration",
     # Local
     "users.apps.UsersConfig",
+    "books.apps.BooksConfig",
 ]
 
 MIDDLEWARE = [
