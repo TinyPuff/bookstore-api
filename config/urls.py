@@ -23,4 +23,8 @@ urlpatterns = [
     path("api-auth/", include("rest_framework.urls")),
     path("api/v1/users/", include("users.urls")),
     path("api/v1/dj-rest-auth/", include("dj_rest_auth.urls")),
+    path(
+        "api/v1/django-rest-auth/registration/",
+        include("dj_rest_auth.registration.urls"),
+    ),
 ]
