@@ -22,7 +22,9 @@ class CartSerializer(serializers.ModelSerializer):
             "quantity",
         )
 
-    def validate_product(self, data):
+    def validate_product(
+        self, data
+    ):  # Checks whether the quantity exceeds the amount in stock
         quantity = int(self.initial_data["quantity"])
         stock = int(Book.objects.get(id=data.id).stock)
         if quantity > stock:
@@ -35,7 +37,9 @@ class CartSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(msg)
         return data
 
-    def to_representation(self, instance):
+    def to_representation(
+        self, instance
+    ):  # Adds two additional values to the json response. (user_id and product_title)
         representation = super().to_representation(instance)
         representation["product_title"] = str(instance.product)
         representation["user_id"] = User.objects.get(email=instance.user).id
