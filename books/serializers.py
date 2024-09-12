@@ -1,5 +1,9 @@
 from rest_framework import serializers
-from .models import Book, Category
+from .models import Book, Category, Review
+from django.contrib.auth import get_user_model
+
+
+User = get_user_model()
 
 
 class BookSerializer(serializers.ModelSerializer):
@@ -16,6 +20,7 @@ class BookSerializer(serializers.ModelSerializer):
             "stock",
             "primary_category",
             "secondary_category",
+            "reviews",
         )
 
 
@@ -29,4 +34,20 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = (
             "title",
             "books",
+        )
+
+
+class ReviewSerializer(serializers.ModelSerializer):
+    book = serializers.SlugRelatedField(queryset=Book.objects.all(), slug_field="title")
+    author = serializers.SlugRelatedField(
+        queryset=User.objects.all(), slug_field="email"
+    )
+
+    class Meta:
+        model = Review
+        fields = (
+            "id",
+            "book",
+            "author",
+            "review",
         )
