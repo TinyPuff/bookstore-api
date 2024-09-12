@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     # Local
     "users.apps.UsersConfig",
     "books.apps.BooksConfig",
+    "orders.apps.OrdersConfig",
 ]
 
 MIDDLEWARE = [
