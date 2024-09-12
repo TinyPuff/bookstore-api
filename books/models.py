@@ -40,17 +40,6 @@ class Book(models.Model):
         return f"{self.author} - {self.title}"
 
 
-class BookCategory(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-
-    class Meta:
-        unique_together = ("book", "category")
-
-    def __str__(self):
-        return f"{self.book.title}({self.category.title})"
-
-
 class Review(models.Model):
     book = models.ForeignKey(
         Book,
