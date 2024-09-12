@@ -3,6 +3,8 @@ from .models import Book
 
 
 class BookSerializer(serializers.ModelSerializer):
+    primary_category = serializers.StringRelatedField(many=True)
+    secondary_category = serializers.StringRelatedField(many=True)
     class Meta:
         model = Book
         fields = (
