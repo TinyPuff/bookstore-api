@@ -3,7 +3,7 @@ from books.models import Book
 from django.core.exceptions import ValidationError
 from allauth.account.models import EmailAddress
 
-# Create your models here.
+# Views for OrderInfo and OrderedProductsInfo will made later
 
 
 class OrderInfo(models.Model):
@@ -25,7 +25,7 @@ class OrderInfo(models.Model):
         return f"{self.user} ({self.gateway_id})"
 
 
-class OrderedProductsInfo(models.Model):
+class OrderedProductsInfo(models.Model): 
     order = models.ForeignKey(OrderInfo, on_delete=models.CASCADE)
     product = models.ForeignKey(Book, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=0)
