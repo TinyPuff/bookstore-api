@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "dj_rest_auth",
     "dj_rest_auth.registration",
+    "drf_spectacular",
     # Local
     "users.apps.UsersConfig",
     "books.apps.BooksConfig",
@@ -179,6 +180,14 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     "LOGIN_SERIALIZER": "users.serializers.CustomLoginSerializer",
     "REGISTER_SERIALIZER": "users.serializers.CustomRegisterSerializer",
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Bookstore API Project",
+    "DESCRIPTION": "Bookstore API including custom user authentication, shopping cart, etc.",
+    "VERSION": "1.0.0",
+    # OTHER SETTINGS
 }
